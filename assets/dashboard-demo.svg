@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="Segoe UI,Tahoma,Arial,sans-serif" font-size="22">
+<rect width="1200" height="640" fill="#f0f5fa"/>
+<rect width="1200" height="44" fill="#e4ecf4"/><text x="24" y="29" fill="#24405c" font-size="17">FlexMax Accounts</text>
+<rect x="875" y="44" width="325" height="596" fill="#2687c2"/>
+<g text-anchor="middle" fill="white"><text x="1035" y="113">الفواتير</text><text x="1035" y="169">المخزون</text><text x="1035" y="225">الحسابات</text><text x="1035" y="281">التقارير</text></g>
+<text x="440" y="88" text-anchor="middle" fill="#24405c" font-weight="bold">لوحة المؤشرات المالية</text>
+<g fill="#fff" stroke="#d6e4ed"><rect x="35" y="115" width="260" height="100" rx="9"/><rect x="310" y="115" width="260" height="100" rx="9"/><rect x="585" y="115" width="260" height="100" rx="9"/><rect x="35" y="240" width="810" height="340" rx="9"/></g>
+<g fill="#20486a" text-anchor="middle"><text x="165" y="151">رصيد الخزينة</text><text x="440" y="151">صافي الأرباح</text><text x="715" y="151">صافي المبيعات</text><text x="165" y="188">15,420 ج.م</text><text x="440" y="188">4,780 ج.م</text><text x="715" y="188">28,650 ج.م</text><text x="440" y="284">المبيعات اليومية · أسبوعان</text></g>
+<path d="M70 525H810 M70 465H810 M70 405H810 M70 345H810" stroke="#d6e4ed"/>
+<path d="M70 490 L125 455 180 473 235 412 290 445 345 386 400 407 455 375 510 400 565 349 620 375 675 326 730 351 810 310 V525 H70Z" fill="#dbefff"/>
+<path d="M70 490 L125 455 180 473 235 412 290 445 345 386 400 407 455 375 510 400 565 349 620 375 675 326 730 351 810 310" fill="none" stroke="#258bc8" stroke-width="5"/>
+<text x="440" y="614" text-anchor="middle" fill="#526c84" font-size="16">واجهة توضيحية · بيانات وهمية</text>
+</svg>

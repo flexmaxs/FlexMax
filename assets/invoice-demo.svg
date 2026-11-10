@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="Segoe UI,Tahoma,Arial,sans-serif" font-size="22">
+<rect width="1200" height="640" fill="#f0f5fa"/>
+<rect width="1200" height="44" fill="#e4ecf4"/><text x="24" y="29" fill="#24405c" font-size="17">FlexMax Accounts</text>
+<rect x="875" y="44" width="325" height="596" fill="#2687c2"/>
+<g text-anchor="middle" fill="white"><text x="1035" y="113">الفواتير</text><text x="1035" y="169">المخزون</text><text x="1035" y="225">الحسابات</text><text x="1035" y="281">التقارير</text></g>
+<text x="440" y="88" text-anchor="middle" fill="#24405c" font-weight="bold">فاتورة مبيعات</text>
+<rect x='35' y='125' width='810' height='54' fill='#258bc8'/>
+<text x='745' y='159' text-anchor='middle' fill='white'>الصنف</text>
+<text x='545' y='159' text-anchor='middle' fill='white'>الكمية</text>
+<text x='345' y='159' text-anchor='middle' fill='white'>سعر الوحدة</text>
+<text x='145' y='159' text-anchor='middle' fill='white'>الإجمالي</text>
+<rect x='35' y='179' width='810' height='54' fill='#eaf3fa'/>
+<text x='745' y='213' text-anchor='middle' fill='#24405c'>أرز ١ كجم</text>
+<text x='545' y='213' text-anchor='middle' fill='#24405c'>٢</text>
+<text x='345' y='213' text-anchor='middle' fill='#24405c'>٣٥</text>
+<text x='145' y='213' text-anchor='middle' fill='#24405c'>٧٠</text>
+<rect x='35' y='233' width='810' height='54' fill='#fff'/>
+<text x='745' y='267' text-anchor='middle' fill='#24405c'>حليب ١ لتر</text>
+<text x='545' y='267' text-anchor='middle' fill='#24405c'>٣</text>
+<text x='345' y='267' text-anchor='middle' fill='#24405c'>٤٠</text>
+<text x='145' y='267' text-anchor='middle' fill='#24405c'>١٢٠</text>
+<rect x='35' y='287' width='810' height='54' fill='#eaf3fa'/>
+<text x='745' y='321' text-anchor='middle' fill='#24405c'>زيت ١ لتر</text>
+<text x='545' y='321' text-anchor='middle' fill='#24405c'>١</text>
+<text x='345' y='321' text-anchor='middle' fill='#24405c'>٧٥</text>
+<text x='145' y='321' text-anchor='middle' fill='#24405c'>٧٥</text>
+<rect x='35' y='341' width='810' height='54' fill='#fff'/>
+<text x='745' y='375' text-anchor='middle' fill='#24405c'>سكر ١ كجم</text>
+<text x='545' y='375' text-anchor='middle' fill='#24405c'>٢</text>
+<text x='345' y='375' text-anchor='middle' fill='#24405c'>٣٠</text>
+<text x='145' y='375' text-anchor='middle' fill='#24405c'>٦٠</text>
+<rect x='35' y='395' width='810' height='54' fill='#eaf3fa'/>
+<text x='745' y='429' text-anchor='middle' fill='#24405c'>الإجمالي</text>
+<text x='545' y='429' text-anchor='middle' fill='#24405c'>—</text>
+<text x='345' y='429' text-anchor='middle' fill='#24405c'>—</text>
+<text x='145' y='429' text-anchor='middle' fill='#24405c'>٣٢٥ ج.م</text>
+<text x="440" y="614" text-anchor="middle" fill="#526c84" font-size="16">واجهة توضيحية · بيانات وهمية</text>
+</svg>
