@@ -11,6 +11,7 @@ const images = {
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const fine = matchMedia('(hover: hover) and (pointer: fine)');
+let lang = 'ar';
 const bar = $('.top');
 const onScroll = () => bar.classList.toggle('scrolled', scrollY > 24);
 onScroll(); addEventListener('scroll', onScroll, {passive: true});
@@ -42,9 +43,6 @@ if (tilt && vis && !reduced.matches) {
   vis.addEventListener('pointerleave', () => ['--ry', '--rx'].forEach(p => tilt.style.setProperty(p, '0deg')) || ['--px', '--py'].forEach(p => vis.style.setProperty(p, 0)));
 }
 if (fine.matches && !reduced.matches) {
-  const glow = document.createElement('div'); glow.className = 'cursor-glow'; document.body.append(glow);
-  addEventListener('pointermove', e => { glow.style.opacity = 1; glow.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)'; }, {passive: true});
-  document.documentElement.addEventListener('pointerleave', () => { glow.style.opacity = 0; });
   $$('.button').forEach(b => {
     b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); b.style.setProperty('--tx', ((e.clientX - r.left) / r.width - .5) * 10 + 'px'); b.style.setProperty('--ty', ((e.clientY - r.top) / r.height - .5) * 8 + 'px'); });
     b.addEventListener('pointerleave', () => { b.style.removeProperty('--tx'); b.style.removeProperty('--ty'); });
@@ -57,7 +55,7 @@ $$('.glow').forEach(el => el.addEventListener('pointermove', e => {
 const steps = $$('[data-screen]');
 function activate(step) {
   if (step.classList.contains('active')) return;
-  const [title, file] = images[step.dataset.screen];
+  const file = images[step.dataset.screen][1], title = step.querySelector('button').textContent;
   const img = $('#screen');
   steps.forEach(item => {
     const on = item === step;
@@ -65,7 +63,7 @@ function activate(step) {
     item.querySelector('button').setAttribute('aria-pressed', on);
   });
   img.src = $('#zoom').href = 'assets/' + file;
-  img.alt = 'شاشة ' + title;
+  img.alt = (lang === 'en' ? 'Screen: ' : 'شاشة ') + title;
   $('#caption').textContent = title;
   img.getAnimations().forEach(a => a.cancel());
   if (!reduced.matches) img.animate([{opacity: .2, transform: 'scale(.97)', filter: 'blur(8px)'}, {opacity: 1, transform: 'scale(1)', filter: 'blur(0)'}], {duration: 450, easing: 'cubic-bezier(.2,.8,.2,1)'});
@@ -86,7 +84,8 @@ if (form) {
   if ([...select.options].some(option => option.value === activity)) select.value = activity;
   form.addEventListener('submit', event => {
     event.preventDefault();
-    const msg = 'السلام عليكم، أنا ' + form.elements.customer.value + '، نشاطي: ' + select.selectedOptions[0].textContent + '، ورقمي: ' + form.elements.phone.value + '. عايز أعرف أكتر عن FlexMax Accounts';
+    const n = form.elements.customer.value, a = select.selectedOptions[0].textContent, p = form.elements.phone.value, m = form.elements.message ? form.elements.message.value.trim() : '';
+    const msg = lang === 'en' ? 'Hello, I’m ' + n + '. My business: ' + a + '. My number: ' + p + '. I’d like to know more about FlexMax Accounts.' + (m ? '\nMessage: ' + m : '') : 'السلام عليكم، أنا ' + n + '، نشاطي: ' + a + '، ورقمي: ' + p + '. عايز أعرف أكتر عن FlexMax Accounts' + (m ? '\nالرسالة: ' + m : '');
     open('https://wa.me/201101830923?text=' + encodeURIComponent(msg), '_blank', 'noopener');
   });
 }
@@ -96,4 +95,54 @@ $$('[data-social]').forEach(a => {
   const url = SOCIAL[a.dataset.social];
   if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.removeAttribute('aria-disabled'); }
 });
+
+// ---------- أكورديون بحركة فتح وقفل ----------
+$$('.faq details').forEach(det => {
+  const sum = det.querySelector('summary'); let anim = null, target = det.open;
+  det.classList.toggle('is-open', det.open);
+  sum.addEventListener('click', e => {
+    e.preventDefault();
+    if (anim) { anim.onfinish = null; anim.cancel(); anim = null; det.open = target; det.style.overflow = ''; }
+    const opening = !det.open; target = opening;
+    if (reduced.matches) { det.open = opening; det.classList.toggle('is-open', opening); return; }
+    det.style.overflow = 'hidden';
+    const from = det.offsetHeight; let to;
+    if (opening) { det.open = true; det.classList.add('is-open'); to = det.offsetHeight; }
+    else { det.classList.remove('is-open'); det.open = false; to = det.offsetHeight; det.open = true; }
+    anim = det.animate({height: [from + 'px', to + 'px']}, {duration: 380, easing: 'cubic-bezier(.2,.8,.2,1)'});
+    anim.onfinish = () => { det.open = opening; det.style.overflow = ''; anim = null; };
+  });
+});
+
+// ---------- اللغة: عربي (RTL) / English (LTR) ----------
+const WA_MSG = {ar: 'السلام عليكم، عايز أعرف أكتر عن برنامج FlexMax Accounts', en: 'Hello, I’d like to know more about FlexMax Accounts'};
+function setLang(l, persist) {
+  lang = l;
+  const root = document.documentElement; root.lang = l; root.dir = l === 'en' ? 'ltr' : 'rtl';
+  $$('[data-en]').forEach(el => {
+    if (!el.hasAttribute('data-ar')) el.setAttribute('data-ar', el.innerHTML);
+    el.innerHTML = l === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ar');
+  });
+  ['alt', 'aria-label', 'content'].forEach(at => $$('[data-en-' + at + ']').forEach(el => {
+    const k = 'data-ar-' + at;
+    if (!el.hasAttribute(k)) el.setAttribute(k, el.getAttribute(at));
+    el.setAttribute(at, l === 'en' ? el.getAttribute('data-en-' + at) : el.getAttribute(k));
+  }));
+  $$('a[href^="https://wa.me/"]').forEach(a => { a.href = 'https://wa.me/201101830923?text=' + encodeURIComponent(WA_MSG[l]); });
+  $$('a[href^="demo.html"]').forEach(a => { const q = new URL(a.getAttribute('href'), 'http://x/').searchParams; q.set('lang', l); a.setAttribute('href', 'demo.html?' + q); });
+  const btn = $('.lang');
+  if (btn) { btn.textContent = l === 'en' ? 'عربي' : 'EN'; btn.setAttribute('aria-label', l === 'en' ? 'التبديل إلى العربية' : 'Switch to English'); }
+  const active = $('.step.active');
+  if (active && $('#screen')) {
+    const t = active.querySelector('button').textContent;
+    $('#screen').alt = (l === 'en' ? 'Screen: ' : 'شاشة ') + t; $('#caption').textContent = t;
+  }
+  if (persist) { try { localStorage.setItem('fm-lang', l); } catch (e) {} }
+}
+{
+  const q = new URLSearchParams(location.search).get('lang');
+  let saved = null; try { saved = localStorage.getItem('fm-lang'); } catch (e) {}
+  setLang(q === 'en' || q === 'ar' ? q : saved === 'en' ? 'en' : 'ar', false);
+  const btn = $('.lang'); if (btn) btn.addEventListener('click', () => setLang(lang === 'en' ? 'ar' : 'en', true));
+}
 })();
