@@ -1,14 +1,15 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>طلب عرض | FlexMax Accounts</title>
-<link rel="icon" href="assets/logo.png"><link rel="stylesheet" href="style.css"><script src="site.js" defer></script>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><script>(function(){try{var q=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fm-lang');if(q==='en'){var r=document.documentElement;r.lang='en';r.dir='ltr'}}catch(e){}})()</script>
+<title data-en="Contact us | FlexMax Accounts">تواصل معنا | FlexMax Accounts</title>
+<link href="assets/logo.png" rel="icon"/><link href="style.css" rel="stylesheet"/><script defer="" src="site.js"></script>
 </head>
-<body class="booking"><header class="top"><div class="wrap nav"><a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="42" height="42"><b dir="ltr">FlexMax <span>Accounts</span></b></a><a href="index.html">الرجوع للرئيسية</a></div></header>
-<main class="wrap book-grid"><div><p class="eyebrow"><i></i> جولة حسب نشاطك</p><h1>كلمنا<br><em>على واتساب.</em></h1><p class="lead">اختار نشاطك وابعت الطلب على واتساب.</p></div>
-<form id="demo-form" class="form"><h2>بيانات طلب العرض</h2><p class="muted">هيفتح معاك واتساب برسالة جاهزة.</p>
-<label>الاسم<input name="customer" autocomplete="name" required maxlength="80"></label>
-<label>رقم التواصل<input name="phone" type="tel" dir="ltr" autocomplete="tel" required maxlength="30"></label>
-<label>نوع النشاط<select name="activity" required><option value="">اختار نوع النشاط</option><option value="market">سوبر ماركت</option><option value="clothes">محل ملابس</option><option value="restaurant">مطعم</option><option value="factory">مصنع</option><option value="payments">محل خدمات دفع</option><option value="other">نشاط آخر</option></select></label>
-<button class="button" type="submit">ابعت على واتساب ←</button><p id="form-result" role="status" hidden></p></form></main></body></html>
+<body class="booking"><header class="top"><div class="wrap nav"><a class="brand" href="index.html"><img alt="" height="42" src="assets/logo.png" width="42"/><b dir="ltr">FlexMax <span>Accounts</span></b></a><button aria-label="Switch to English" class="lang" type="button">EN</button><a data-en="Back to home" href="index.html">الرجوع للرئيسية</a></div></header>
+<main class="wrap book-grid"><div><h1 data-en="Get in &lt;em&gt;touch.&lt;/em&gt;">تواصل <em>معانا.</em></h1><p class="lead" data-en="Enter your details, choose your business, and send it to us on WhatsApp.">اكتب بياناتك واختار نشاطك، وابعتلنا على واتساب.</p></div>
+<form class="form" id="demo-form"><h2 data-en="Your details">بياناتك</h2><p class="muted" data-en="WhatsApp will open with a ready-made message.">هيفتح معاك واتساب برسالة جاهزة.</p>
+<label><span data-en="Name">الاسم</span><input autocomplete="name" maxlength="80" name="customer" required=""/></label>
+<label><span data-en="Phone number">رقم التواصل</span><input autocomplete="tel" dir="ltr" maxlength="30" name="phone" required="" type="tel"/></label>
+<label><span data-en="Business type">نوع النشاط</span><select name="activity" required=""><option data-en="Choose business type" value="">اختار نوع النشاط</option><option data-en="Supermarket" value="market">سوبر ماركت</option><option data-en="Clothing store" value="clothes">محل ملابس</option><option data-en="Restaurant" value="restaurant">مطعم</option><option data-en="Factory" value="factory">مصنع</option><option data-en="Payment-services shop" value="payments">محل خدمات دفع</option><option data-en="Other business" value="other">نشاط آخر</option></select></label><label><span data-en="Your message (optional)">رسالتك (اختياري)</span><textarea maxlength="500" name="message" rows="4"></textarea></label>
+<button class="button" data-en="Send on WhatsApp →" type="submit">ابعت على واتساب ←</button><p hidden="" id="form-result" role="status"></p></form></main></body></html>
