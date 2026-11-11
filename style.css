@@ -75,7 +75,7 @@ details p{padding-bottom:16px;color:var(--mut);animation:open .35s ease-out}@key
 .social a[aria-disabled="true"]{opacity:.45;cursor:not-allowed}.social a:not([aria-disabled]):hover{background:var(--mint);color:#06231c}
 .contact-btns{display:flex;flex-direction:column;align-items:center;gap:12px}.call{font-size:17px}
 .footer{display:flex;justify-content:space-between;padding-block:30px;font-size:14px;color:var(--mut)}
-.wa-float{position:fixed;inset-inline-start:18px;bottom:18px;z-index:20;background:#25d366;color:#073b1c;font-weight:650;padding:11px 18px;border-radius:999px;box-shadow:0 8px 24px #0006;animation:pulse 2.6s infinite}
+
 @keyframes pulse{70%{box-shadow:0 8px 24px #0006,0 0 0 14px #25d36600}0%{box-shadow:0 8px 24px #0006,0 0 0 0 #25d36688}}
 .booking .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding-block:70px}
 .form{display:grid;gap:14px;padding:28px;border-radius:20px;border:1px solid var(--line);background:#ffffff0d;backdrop-filter:blur(14px)}.form h2{font-size:26px}.form label{display:grid;gap:5px}
@@ -128,6 +128,16 @@ details p{padding-bottom:16px;color:var(--mut);animation:open .35s ease-out}@key
 
 .booking .book-grid{align-items:start}.booking h1{white-space:nowrap}
 .faq-grid{display:block}.faq-side{position:static;margin-bottom:28px}.faq .faq-side h2{margin-bottom:10px}
-
-.wa-float{display:none}
-@media(max-width:899px){.wa-float{display:inline-flex;align-items:center;left:auto;inset-inline-start:auto;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px))}}
+.wa-float{
+  display:none;
+  position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px)); z-index:20;
+  width:58px; height:58px; padding:0; border-radius:50%;
+  background:#25d366; color:#fff;
+  align-items:center; justify-content:center;
+  box-shadow:0 8px 24px #0006;
+  animation:pulse 2.6s infinite;
+  transition:transform .2s;
+}
+.wa-float:hover,.wa-float:active{ transform:scale(1.08) }
+.wa-float svg{ width:30px; height:30px; display:block }
+@media (max-width:899px){ .wa-float{ display:flex } }
