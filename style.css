@@ -95,8 +95,36 @@ details p{padding-bottom:16px;color:var(--mut);animation:open .35s ease-out}@key
 .chip{translate:calc(var(--px,0)*var(--d,12)*1px) calc(var(--py,0)*var(--d,12)*1px);transition:translate .3s ease-out,border-color .3s,background .3s}.chip:hover{border-color:var(--mint);background:#1b1450}
 .c1{--d:16}.c2{--d:-20}.c3{--d:22}.c4{top:38%;inset-inline-start:-34px;--d:-14;animation-delay:-1s}
 .hero-shot::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,0),#ffffff26,transparent 55%)}.visual:hover .hero-shot::after{opacity:1}
-.cursor-glow{position:fixed;left:0;top:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;pointer-events:none;z-index:-1;opacity:0;background:radial-gradient(circle,#7c4dff33,#5df2c414 45%,transparent 68%);transition:transform .35s ease-out,opacity .5s}
 .button{translate:var(--tx,0) var(--ty,0);transition:transform .25s,box-shadow .25s,translate .2s ease-out}
 .step:not(.active):hover{border-color:#ffffff40;background:#ffffff0f;transform:translateX(-4px)}
 .stage img{transition:transform .7s cubic-bezier(.2,.8,.2,1)}.stage a:hover img{transform:scale(1.02)}
 @media(max-width:899px){.pill,.c4{display:none}}
+
+/* ---------- اللغة / الاتجاه ---------- */
+.lang{display:inline-flex;align-items:center;justify-content:center;min-width:46px;padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:#ffffff0d;color:var(--ink);font-size:13px;font-weight:600;cursor:pointer;transition:background .25s,border-color .25s}
+.lang:hover{background:#ffffff1c;border-color:#5df2c477}
+.wa-float{inset-inline-start:auto;right:18px}
+[dir="ltr"] .step.active{transform:translateX(6px)}[dir="ltr"] .step:not(.active):hover{transform:translateX(4px)}
+[dir="ltr"] .track{direction:ltr}
+[lang="en"] h1{font-size:clamp(30px,3.9vw,54px);white-space:normal;line-height:1.12}
+[lang="en"] .lead{max-width:44ch}
+[lang="en"] .links a{font-size:13.5px}
+@media(max-width:899px){[dir="ltr"] .step.active{transform:none}}
+
+.faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.faq-side{position:sticky;top:110px}.faq .faq-side h2{margin-bottom:12px}
+.ask{margin-top:28px;padding:26px;border-radius:20px;border:1px solid #5df2c44d;background:linear-gradient(130deg,#7c4dff33,#5df2c41f);display:grid;gap:10px;justify-items:start}
+.ask b{font-size:20px}.ask p{color:var(--mut)}
+.faq-list details{max-width:none;border:1px solid var(--line);border-radius:16px;background:#ffffff08;padding:2px 22px;margin-bottom:12px;transition:border-color .3s,background .3s}
+.faq-list details:hover{border-color:#ffffff40}.faq-list details[open]{border-color:#5df2c455;background:#ffffff0f}
+.faq-list summary{padding-block:18px;font-size:17px}
+@media(max-width:899px){.faq-grid{grid-template-columns:1fr;gap:28px}.faq-side{position:static}}
+
+.faq-list details[open]{border-color:var(--line);background:#ffffff08}
+.faq details[open] summary::after{transform:none}
+.faq-list details.is-open{border-color:#5df2c455;background:#ffffff0f}
+.faq details.is-open summary::after{transform:rotate(45deg)}
+.form textarea{width:100%;border:1px solid #ffffff33;border-radius:10px;padding:11px;background:#0d0a2b;color:var(--ink);resize:vertical;min-height:96px}
+
+.booking .book-grid{align-items:start}.booking h1{white-space:nowrap}
+.faq-grid{display:block}.faq-side{position:static;margin-bottom:28px}.faq .faq-side h2{margin-bottom:10px}
