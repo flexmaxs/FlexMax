@@ -146,5 +146,3 @@ function setLang(l, persist) {
   const btn = $('.lang'); if (btn) btn.addEventListener('click', () => setLang(lang === 'en' ? 'ar' : 'en', true));
 }
 })();
-
-
