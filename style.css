@@ -128,3 +128,6 @@ details p{padding-bottom:16px;color:var(--mut);animation:open .35s ease-out}@key
 
 .booking .book-grid{align-items:start}.booking h1{white-space:nowrap}
 .faq-grid{display:block}.faq-side{position:static;margin-bottom:28px}.faq .faq-side h2{margin-bottom:10px}
+
+.wa-float{display:none}
+@media(max-width:899px){.wa-float{display:inline-flex;align-items:center;left:auto;inset-inline-start:auto;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px))}}
